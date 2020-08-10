@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Spring Boot Sample App</title>
+  </head>
+  <body>
+    Hello World
+    <form th:action="@{/judge}" th:object="${creature}" method="post">
+      <div class="field">
+        <label for="name">お名前</label><span class="tag">必須</span><br />
+        <input type="text" id="name" name="name" th:value="*{name}">
+        <p th:errors="*{name}" class="error-message"></p>
+        <p th:if="${nameErrMsg} != null" th:text="${nameErrMsg}" style="color:red;"></p>
+      </div>
+      <div class="field">
+        <label for="email">タイプ</label><span class="tag">必須</span><br />
+        <input type="text" id="type" name="type" th:value="*{type}">
+        <p th:errors="*{type}" class="error-message"></p>
+        <p th:if="${#fields.hasErrors('type')}">タイプにエラーがあります。</p>
+      </div>
+      <p><button type="submit" class="btn btn-success">Add</button></p>
+    </form>
+  </body>
+</html>
