@@ -3,6 +3,7 @@
  */
 package jp.co.netprotections.dto;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -15,6 +16,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Valid
 public class CreatureDTO {
 	@NotBlank
 	private String name;

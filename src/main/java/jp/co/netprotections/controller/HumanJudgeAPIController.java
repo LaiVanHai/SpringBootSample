@@ -21,7 +21,6 @@ import jp.co.netprotections.service.HumanJudgeService;
  *
  */
 @RestController
-@Validated
 @RequestMapping("/api/v1")
 public class HumanJudgeAPIController {
 	@Autowired
@@ -29,7 +28,7 @@ public class HumanJudgeAPIController {
 	
 	@RequestMapping(value = "/judge", method = RequestMethod.POST ) // ②
 	// ③judgeHumanメソッドについて
-	public Response judgeHuman(@RequestBody @Valid Request requestBody) {
+	public Response judgeHuman(@RequestBody @Validated Request requestBody) {
 		// 判別結果を入れるリストを作成。
 		return humanJudgeService.checkHuman(requestBody);
 	}

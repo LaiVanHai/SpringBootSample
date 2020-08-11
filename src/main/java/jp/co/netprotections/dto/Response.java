@@ -5,8 +5,8 @@ package jp.co.netprotections.dto;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -15,9 +15,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class Response {
-	private final int count;
-	private final List<CreatureDTO> results;
-	private List<ErrorResponse> errors;
+	private int count;
+	private List<CreatureDTO> results;
 }

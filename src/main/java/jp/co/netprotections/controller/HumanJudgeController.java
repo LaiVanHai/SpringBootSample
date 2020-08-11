@@ -25,18 +25,26 @@ public class HumanJudgeController {
 	private HumanJudgeService humanJudgeService;
 
 	@PostMapping(value = "/judge")
-	// ③judgeHumanメソッドについて
-	public String judgeHuman(@ModelAttribute @Validated CreatureDTO creature, BindingResult result, Model model) {
-		System.out.print("----->" + creature.getName());
-		System.out.print("----->" + creature.getType());
-		if (result.hasErrors()) {
+	public String judgeHuman(@ModelAttribute @Validated CreatureDTO creature, BindingResult bindingResult,
+			Model model) {
+		if (bindingResult.hasErrors()) {
 			model.addAttribute("creature", creature);
+			if (bindingResult.hasFieldErrors("name")) {
+				model.addAttribute("nameErrMsg", "お名前にエラーがあります。修正してください。");
+			}
 
-			model.addAttribute("nameErrMsg", "名前にエラーがあります。修正してください。");
+			if (bindingResult.hasFieldErrors("type")) {
+				model.addAttribute("typeErrMsg", "タイプにエラーがあります。修正してください。");
+			}
+
 			return "index.html";
 		}
-		creature.setName("Hai");
 		model.addAttribute("creature", creature);
+		if (creature.getType().equals("human")) {
+			model.addAttribute("result", creature.getName() + "は人間です。");
+		} else {
+			model.addAttribute("result", creature.getName() + "は動物です。");
+		}
 		return "index.html";
 	}
 

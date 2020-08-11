@@ -1,23 +1,36 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
+    <meta charset="UTF-8" />
     <title>Spring Boot Sample App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+
+    <!--js-->
+    <script th:src="@{/js/bootstrap.js}"></script>
   </head>
   <body>
-    Hello World
-    <form th:action="@{/judge}" th:object="${creature}" method="post">
-      <div class="field">
-        <label for="name">お名前</label><span class="tag">必須</span><br />
-        <input type="text" id="name" name="name" th:value="*{name}">
-        <p th:errors="*{name}" class="error-message"></p>
-        <p th:if="${nameErrMsg} != null" th:text="${nameErrMsg}" style="color:red;"></p>
-      </div>
-      <div class="field">
-        <label for="email">タイプ</label><span class="tag">必須</span><br />
-        <input type="text" id="type" name="type" th:value="*{type}">
-        <p th:errors="*{type}" class="error-message"></p>
-        <p th:if="${#fields.hasErrors('type')}">タイプにエラーがあります。</p>
-      </div>
-      <p><button type="submit" class="btn btn-success">Add</button></p>
-    </form>
+    <div class="container">
+      <h1 class="display-4">Spring Boot Sample</h1>
+      <form th:action="@{/judge}" th:object="${creature}" method="post">
+        <div class="form-group">
+          <label for="name">お名前：</label><span class="badge-danger">必須</span><br />
+          <input type="text" id="name" name="name" class="form-control" placeholder="名前を入力してください" th:value="*{name}">
+          <p th:errors="*{name}" class="error-message"></p>
+          <p th:if="${nameErrMsg} != null" th:text="${nameErrMsg}" class="invalid-feedback"></p>
+        </div>
+        <div class="form-group">
+          <label for="type">タイプ：</label><span class="badge-danger">必須</span><br />
+          <input type="text" id="type" name="type" class="form-control" placeholder="「human」または「animal」を入力してください" th:value="*{type}">
+          <p th:errors="*{type}" class="error-message"></p>
+          <p th:if="${typeErrMsg} != null" th:text="${typeErrMsg}" class="invalid-feedback"></p>
+        </div>
+        <p><button type="submit" class="btn btn-success btn-sm">確認します</button></p>
+        <p th:text="${result}" class="lead"></p>
+      </form>
+    </div>
   </body>
 </html>
