@@ -20,12 +20,13 @@ import jp.co.netprotections.service.HumanJudgeService;
  *
  */
 @Controller
+@Validated
 public class HumanJudgeController {
 	@Autowired
 	private HumanJudgeService humanJudgeService;
 
 	@PostMapping(value = "/judge")
-	public String judgeHuman(@ModelAttribute @Validated CreatureDTO creature, BindingResult bindingResult,
+	public String judgeHuman(@Validated @ModelAttribute CreatureDTO creature, BindingResult bindingResult,
 			Model model) {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("creature", creature);
@@ -36,7 +37,6 @@ public class HumanJudgeController {
 			if (bindingResult.hasFieldErrors("type")) {
 				model.addAttribute("typeErrMsg", "タイプにエラーがあります。修正してください。");
 			}
-
 			return "index.html";
 		}
 		model.addAttribute("creature", creature);

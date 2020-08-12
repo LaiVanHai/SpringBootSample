@@ -19,13 +19,11 @@
         <div class="form-group">
           <label for="name">お名前：</label><span class="badge-danger">必須</span><br />
           <input type="text" id="name" name="name" class="form-control" placeholder="名前を入力してください" th:value="*{name}">
-          <p th:errors="*{name}" class="error-message"></p>
           <p th:if="${nameErrMsg} != null" th:text="${nameErrMsg}" class="invalid-feedback"></p>
         </div>
         <div class="form-group">
           <label for="type">タイプ：</label><span class="badge-danger">必須</span><br />
           <input type="text" id="type" name="type" class="form-control" placeholder="「human」または「animal」を入力してください" th:value="*{type}">
-          <p th:errors="*{type}" class="error-message"></p>
           <p th:if="${typeErrMsg} != null" th:text="${typeErrMsg}" class="invalid-feedback"></p>
         </div>
         <p><button type="submit" class="btn btn-success btn-sm">確認します</button></p>

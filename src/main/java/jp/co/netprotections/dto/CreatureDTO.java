@@ -3,7 +3,6 @@
  */
 package jp.co.netprotections.dto;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -16,11 +15,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@Valid
 public class CreatureDTO {
-	@NotBlank
+	@NotBlank(message = "ブランクしないでください！")
 	private String name;
-	@NotBlank
+	@NotBlank(message = "ブランクしないでください！")
 	@Pattern(regexp = "(human|animal)", message = "「human」または「animal」を入力してくだい！")
 	private String type;
 }
