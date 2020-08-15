@@ -20,6 +20,7 @@
 	</properties>
 
 	<dependencies>
+		<!-- Spring MVCのライブラリー -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -36,17 +37,19 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
+		<!-- @Getter、@Setter、@AllArgsConstructorというアノテーションを使えるように -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.2</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- バリデーションを行うように -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+		<!-- Viewのテンプレートエンジン -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>

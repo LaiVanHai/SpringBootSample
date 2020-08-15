@@ -15,8 +15,12 @@ import lombok.Setter;
  *
  */
 @Getter
+// getCount(), getResults()
 @Setter
+// setCount(int count), setResults(List<CreatureDTO> results)
 @AllArgsConstructor
+//クラスの全てフィルドはコントラクターで定義する
+//Response(int count, List<CreatureDTO> results)
 public class Response {
 	private int count;
 	private List<CreatureDTO> results;

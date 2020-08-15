@@ -16,9 +16,12 @@ import lombok.Setter;
  *
  */
 @Getter
+// getCheck_data()
 @Setter
+// setCheck_data(List<CreatureDTO> check_data)
 public class Request {
 	@Valid
+	// バリデーションを行う
 	private List<CreatureDTO> check_data;
 
 }

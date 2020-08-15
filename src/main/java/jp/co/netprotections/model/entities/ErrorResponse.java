@@ -14,8 +14,12 @@ import lombok.Setter;
  *
  */
 @Getter
+// getMessage()、getDetails()
 @Setter
+// setMessage(String msg)、setDetails(List<String> listDetail)
 @AllArgsConstructor
+// クラスの全てフィルドはコントラクターで定義する
+// ErrorResponse(String message, List<String> details)
 public class ErrorResponse {
 	private String message;
 	private List<String> details;

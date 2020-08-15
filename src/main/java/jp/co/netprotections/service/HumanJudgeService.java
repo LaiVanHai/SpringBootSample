@@ -10,5 +10,5 @@ import jp.co.netprotections.model.dto.CreatureDTO;
  *
  */
 public interface HumanJudgeService {
-	public boolean checkHuman(CreatureDTO creatureDTO); // レスポンスを作成する
+	public boolean checkHuman(CreatureDTO creatureDTO);
 }

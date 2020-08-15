@@ -13,12 +13,14 @@ import jp.co.netprotections.service.HumanJudgeService;
  *
  */
 @Service
+// Serviceを定義する
 public class HumanJudgeServiceImpl implements HumanJudgeService {
 	@Override
 	public boolean checkHuman(CreatureDTO creatureDTO) {
 		if (creatureDTO.getType().equals("human")) {
+		// もし、typeは「human」ならTrueが返却する
 			return true;
-		} 
+		}
 		return false;
 	}
 }
