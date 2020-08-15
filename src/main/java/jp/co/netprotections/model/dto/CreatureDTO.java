@@ -24,7 +24,6 @@ public class CreatureDTO {
 	@NotBlank(message = "ブランクしないでください！")
 	private String name;
 	
-	@NotBlank(message = "ブランクしないでください！")
 	@Pattern(regexp = "(human|animal)", message = "「human」または「animal」を入力してくだい！")
 	// 正規表現でバリデーションを行う
 	private String type;
