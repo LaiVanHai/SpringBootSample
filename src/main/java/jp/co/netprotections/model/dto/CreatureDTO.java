@@ -1,7 +1,7 @@
 /**
  * 
  */
-package jp.co.netprotections.dto;
+package jp.co.netprotections.model.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -21,4 +21,5 @@ public class CreatureDTO {
 	@NotBlank(message = "ブランクしないでください！")
 	@Pattern(regexp = "(human|animal)", message = "「human」または「animal」を入力してくだい！")
 	private String type;
+	
 }

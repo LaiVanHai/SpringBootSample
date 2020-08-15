@@ -3,13 +3,12 @@
  */
 package jp.co.netprotections.service;
 
-import jp.co.netprotections.dto.Request;
-import jp.co.netprotections.dto.Response;
+import jp.co.netprotections.model.dto.CreatureDTO;
 
 /**
  * @author v.lai
  *
  */
 public interface HumanJudgeService {
-	public Response checkHuman(Request requestBody); // レスポンスを作成する
+	public boolean checkHuman(CreatureDTO creatureDTO); // レスポンスを作成する
 }

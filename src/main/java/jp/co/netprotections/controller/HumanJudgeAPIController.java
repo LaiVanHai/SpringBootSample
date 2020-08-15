@@ -21,9 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
-import jp.co.netprotections.dto.ErrorResponse;
-import jp.co.netprotections.dto.Request;
-import jp.co.netprotections.dto.Response;
+import jp.co.netprotections.model.dto.CreatureDTO;
+import jp.co.netprotections.model.entities.ErrorResponse;
+import jp.co.netprotections.model.entities.Request;
+import jp.co.netprotections.model.entities.Response;
 import jp.co.netprotections.service.HumanJudgeService;
 
 /**
@@ -35,14 +36,27 @@ import jp.co.netprotections.service.HumanJudgeService;
 @Validated
 public class HumanJudgeAPIController {
 	@Autowired
-	private HumanJudgeService humanJudgeService; 
-	
-	@RequestMapping(value = "/judge", method = RequestMethod.POST ) // ②
+	private HumanJudgeService humanJudgeService;
+
+	@RequestMapping(value = "/judge", method = RequestMethod.POST) // ②
 	public Response judgeHuman(@Valid @RequestBody Request requestBody, BindingResult bindingResult) {
-		// 判別結果を入れるリストを作成。
-		return humanJudgeService.checkHuman(requestBody);
+		List<CreatureDTO> resultList = new ArrayList<CreatureDTO>();
+		List<CreatureDTO> creatureArr = requestBody.getCheck_data();
+		int humanCount = 0;
+
+		for (int i = 0; i < creatureArr.size(); ++i) {
+			CreatureDTO currenCreature = creatureArr.get(i);
+			if (humanJudgeService.checkHuman(currenCreature)) {
+				humanCount++;
+				resultList.add(currenCreature);
+			}
+		}
+
+		Response response = new Response(humanCount, resultList);
+
+		return response;
 	}
-	
+
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
 		List<String> details = new ArrayList<>();

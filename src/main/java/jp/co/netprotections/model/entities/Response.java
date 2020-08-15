@@ -1,10 +1,11 @@
 /**
  * 
  */
-package jp.co.netprotections.dto;
+package jp.co.netprotections.model.entities;
 
 import java.util.List;
 
+import jp.co.netprotections.model.dto.CreatureDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,11 +17,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class ErrorResponse {
-
-	private String message;
-
-	// Specific errors in API request processing
-	private List<String> details;
-
+public class Response {
+	private int count;
+	private List<CreatureDTO> results;
+	
 }

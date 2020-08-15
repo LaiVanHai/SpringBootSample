@@ -1,7 +1,7 @@
 /**
  * 
  */
-package jp.co.netprotections.dto;
+package jp.co.netprotections.model.entities;
 
 import java.util.List;
 
@@ -16,7 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Response {
-	private int count;
-	private List<CreatureDTO> results;
+public class ErrorResponse {
+	private String message;
+	private List<String> details;
+
 }
