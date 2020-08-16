@@ -17,10 +17,10 @@ import org.springframework.validation.Validator;
  *
  */
 @SpringBootTest
-// SpringのDI機能を使えるように
+// クラスが付けたアノテーション「@SpringBootApplication」を探して、全てBeanをロードして、テストコンテナーに入れる
 public class CreatureDTOTest {
 	@Autowired
-    Validator validator;
+	private Validator validator;
 	// バリデーションを行うオブジェクト
 	
 	private CreatureDTO creatureDto = new CreatureDTO();
