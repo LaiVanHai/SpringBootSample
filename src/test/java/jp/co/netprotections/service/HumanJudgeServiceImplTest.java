@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import jp.co.netprotections.model.dto.CreatureDTO;
+import jp.co.netprotections.dto.CreatureDTO;
 import jp.co.netprotections.service.impl.HumanJudgeServiceImpl;
 
 /**

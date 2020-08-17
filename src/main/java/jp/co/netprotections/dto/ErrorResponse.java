@@ -1,7 +1,7 @@
 /**
  * 
  */
-package jp.co.netprotections.model.entities;
+package jp.co.netprotections.dto;
 
 import java.util.List;
 

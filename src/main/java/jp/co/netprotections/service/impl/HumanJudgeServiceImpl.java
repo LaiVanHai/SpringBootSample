@@ -5,7 +5,7 @@ package jp.co.netprotections.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import jp.co.netprotections.model.dto.CreatureDTO;
+import jp.co.netprotections.dto.CreatureDTO;
 import jp.co.netprotections.service.HumanJudgeService;
 
 /**

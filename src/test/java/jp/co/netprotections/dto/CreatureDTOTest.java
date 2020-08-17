@@ -1,7 +1,7 @@
 /**
  * 
  */
-package jp.co.netprotections.model.dto;
+package jp.co.netprotections.dto;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
+
+import jp.co.netprotections.dto.CreatureDTO;
 
 /**
  * @author v.lai

@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
-import jp.co.netprotections.model.dto.CreatureDTO;
-import jp.co.netprotections.model.entities.ErrorResponse;
-import jp.co.netprotections.model.entities.Request;
-import jp.co.netprotections.model.entities.Response;
+import jp.co.netprotections.dto.CreatureDTO;
+import jp.co.netprotections.dto.ErrorResponse;
+import jp.co.netprotections.dto.Request;
+import jp.co.netprotections.dto.Response;
 import jp.co.netprotections.service.HumanJudgeService;
 
 /**

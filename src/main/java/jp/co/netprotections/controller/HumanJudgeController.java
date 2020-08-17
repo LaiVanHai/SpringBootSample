@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import jp.co.netprotections.model.dto.CreatureDTO;
+import jp.co.netprotections.dto.CreatureDTO;
 import jp.co.netprotections.service.HumanJudgeService;
 
 /**
@@ -60,11 +60,11 @@ public class HumanJudgeController {
 		// bindingResultオブジェクトにバリデーションのエラーに関して、保管している
 		if (bindingResult.hasFieldErrors("name")) {
 			//もし、エラーの内容に「name」に関すれば、modelに「name」のバリデーションメッセージを入れる
-			model.addAttribute("nameErrMsg", "お名前にエラーがあります。修正してください。");
+			model.addAttribute("nameErrMsg", "お名前をきちんと入力してください！");
 		}
 		if (bindingResult.hasFieldErrors("type")) {
 			//もし、エラーの内容に「type」に関すれば、modelに「type」のバリデーションメッセージを入れる
-			model.addAttribute("typeErrMsg", "タイプにエラーがあります。修正してください。");
+			model.addAttribute("typeErrMsg", "「human」または「animal」を入力してください！");
 		}
 		return "index";
 		//　Viewで「index」テンプレートをレンダーする	

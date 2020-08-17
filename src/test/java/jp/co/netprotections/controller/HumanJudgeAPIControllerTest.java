@@ -19,7 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import jp.co.netprotections.model.dto.CreatureDTO;
+import jp.co.netprotections.dto.CreatureDTO;
 import jp.co.netprotections.service.HumanJudgeService;
 
 /**

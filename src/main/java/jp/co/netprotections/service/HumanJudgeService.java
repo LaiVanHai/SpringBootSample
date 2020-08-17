@@ -3,7 +3,7 @@
  */
 package jp.co.netprotections.service;
 
-import jp.co.netprotections.model.dto.CreatureDTO;
+import jp.co.netprotections.dto.CreatureDTO;
 
 /**
  * @author v.lai

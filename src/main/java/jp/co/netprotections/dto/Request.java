@@ -1,13 +1,12 @@
 /**
  * 
  */
-package jp.co.netprotections.model.entities;
+package jp.co.netprotections.dto;
 
 import java.util.List;
 
 import javax.validation.Valid;
 
-import jp.co.netprotections.model.dto.CreatureDTO;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package jp.co.netprotections.model.dto;
+package jp.co.netprotections.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
