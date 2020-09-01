@@ -20,7 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor
 //クラスの全てフィルドはコントラクターで定義する
 //Response(int count, List<CreatureDTO> results)
-public class Response {
+public class ResponseParams {
 	private int count;
 	private List<CreatureDTO> results;
 	

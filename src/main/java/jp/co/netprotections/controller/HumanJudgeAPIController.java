@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
 import jp.co.netprotections.dto.CreatureDTO;
-import jp.co.netprotections.dto.ErrorResponse;
-import jp.co.netprotections.dto.Request;
-import jp.co.netprotections.dto.Response;
+import jp.co.netprotections.dto.ErrorResponseParams;
+import jp.co.netprotections.dto.RequestParams;
+import jp.co.netprotections.dto.ResponseParams;
 import jp.co.netprotections.service.HumanJudgeService;
 
 /**
@@ -47,7 +47,7 @@ public class HumanJudgeAPIController {
 	// アクセスパスは「/api/v1/judge」とHTTPのPOSTメソッドを受けるとき、judgeHumanメソッドを処理する
 	// 同じ意味：	@PostMapping(value = "/judge")
 	@RequestMapping(value = "/judge", method = RequestMethod.POST)
-	public Response judgeHuman(@Valid @RequestBody Request requestBody, BindingResult bindingResult) {
+	public ResponseParams judgeHuman(@Valid @RequestBody RequestParams requestBody, BindingResult bindingResult) {
 		// @RequestBody：リクエストのパラメーターを受けます。
 		// パラメーターの形は「Request」クラスに定義しています。リクエストのパラメータ内容は「requestBody」に保管します。
 		// @Valid：リクエストのパラメーターにバリデーションを行う
@@ -74,7 +74,7 @@ public class HumanJudgeAPIController {
 			}
 		}
 		// APIのレスポンスを返却する
-		return new Response(humanCount, resultList);
+		return new ResponseParams(humanCount, resultList);
 	}
 
 	// 以下の部分はエラーのハンドリングです
@@ -83,7 +83,7 @@ public class HumanJudgeAPIController {
 	public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request) {
 		List<String> details = new ArrayList<>();
 		details.add(ex.getLocalizedMessage());
-		ErrorResponse error = new ErrorResponse("Validation Failed", details);
+		ErrorResponseParams error = new ErrorResponseParams("Validation Failed", details);
 		return new ResponseEntity(error, HttpStatus.BAD_REQUEST);
 	}
 	
@@ -92,7 +92,7 @@ public class HumanJudgeAPIController {
 	public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
 		List<String> details = new ArrayList<>();
 		details.add(ex.getLocalizedMessage());
-		ErrorResponse error = new ErrorResponse("Server Error", details);
+		ErrorResponseParams error = new ErrorResponseParams("Server Error", details);
 		return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }

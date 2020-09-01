@@ -20,7 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor
 // クラスの全てフィルドはコントラクターで定義する
 // ErrorResponse(String message, List<String> details)
-public class ErrorResponse {
+public class ErrorResponseParams {
 	private String message;
 	private List<String> details;
 
