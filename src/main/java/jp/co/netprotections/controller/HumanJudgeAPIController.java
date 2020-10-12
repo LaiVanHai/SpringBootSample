@@ -76,6 +76,11 @@ public class HumanJudgeAPIController {
 		// APIのレスポンスを返却する
 		return new Response(humanCount, resultList);
 	}
+	
+	@RequestMapping(value = "/judge")
+	public String anyRequest() {
+		return "ようこそ！！！";
+	}
 
 	// 以下の部分はエラーのハンドリングです
 	@ExceptionHandler(ConstraintViolationException.class)
