@@ -7,20 +7,25 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * @author v.lai
  *
  */
-@Getter
+//@Getter
 // getCheck_data()
-@Setter
+//@Setter
 // setCheck_data(List<CreatureDTO> check_data)
 public class RequestParams {
 	@Valid
 	// バリデーションを行う
 	private List<CreatureDTO> check_data;
+
+	public List<CreatureDTO> getCheck_data() {
+		return check_data;
+	}
+
+	public void setCheck_data(List<CreatureDTO> check_data) {
+		this.check_data = check_data;
+	}
 
 }
